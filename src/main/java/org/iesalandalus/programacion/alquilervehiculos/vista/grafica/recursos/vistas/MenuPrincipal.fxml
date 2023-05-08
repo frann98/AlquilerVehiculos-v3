@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+  Copyright (c) 2015, 2019, Gluon and/or its affiliates.
+  All rights reserved. Use is subject to license terms.
+
+  This file is available and licensed under the following license:
+
+  Redistribution and use in source and binary forms, with or without
+  modification, are permitted provided that the following conditions
+  are met:
+
+  - Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+  - Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in
+    the documentation and/or other materials provided with the distribution.
+  - Neither the name of Oracle Corporation nor the names of its
+    contributors may be used to endorse or promote products derived
+    from this software without specific prior written permission.
+
+  THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS
+  "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT
+  LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR
+  A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT
+  OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL,
+  SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT
+  LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+  DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY
+  THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
+  (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE
+  OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+-->
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+
+<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.iesalandalus.programacion.alquilervehiculos.vista.grafica.controladores.MenuPrincipal">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="Acerca de...">
+          <items>
+            <MenuItem mnemonicParsing="false" onAction="#mostrarInfoAutor" text="Autor" />
+                  <MenuItem mnemonicParsing="false" onAction="#salir" text="Salir" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
+      <children>
+            <VBox alignment="TOP_CENTER" layoutX="39.0" layoutY="77.0" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+               <children>
+                  <Label text="CLIENTES" />
+                  <Button fx:id="btInsertCliente" mnemonicParsing="false" onAction="#insertarCliente" text="Insertar" />
+                  <Button fx:id="btModificarCliente" mnemonicParsing="false" onAction="#modificarCliente" text="Modificar" />
+                  <Button fx:id="btEliminarCliente" mnemonicParsing="false" onAction="#eliminarCliente" text="Eliminar" />
+                  <Button fx:id="btBuscarCliente" mnemonicParsing="false" onAction="#buscarCliente" text="Buscar" />
+                  <Button fx:id="btListarClientes" mnemonicParsing="false" onAction="#listarCliente" text="Listar" />
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding></VBox>
+            <VBox alignment="TOP_CENTER" layoutX="254.0" layoutY="77.0" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+               <children>
+                  <Label text="VEHICULOS" />
+                  <Button fx:id="btInsertarVehiculo" mnemonicParsing="false" onAction="#insertarVehiculo" text="Insertar" />
+                  <Button fx:id="btEliminarVehiculo" mnemonicParsing="false" onAction="#eliminarVehiculo" text="Eliminar" />
+                  <Button fx:id="btBuscarVehiculo" mnemonicParsing="false" onAction="#buscarVehiculo" text="Buscar" />
+                  <Button fx:id="btListarVehiculo" mnemonicParsing="false" onAction="#listarVehiculos" text="Listar" />
+                  <Button fx:id="btMostrarEstadisticas" mnemonicParsing="false" onAction="#mostrarEstadisticasMensuales" text="Estadísticas" />
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding></VBox>
+            <VBox alignment="TOP_CENTER" layoutX="471.0" layoutY="77.0" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
+               <children>
+                  <Label text="ALQUILERES" />
+                  <Button fx:id="btInsertarAlquiler" mnemonicParsing="false" onAction="#insertarAlquiler" text="Insertar" />
+                  <Button fx:id="btEliminarAlquiler" mnemonicParsing="false" onAction="#eliminarAlquiler" text="Eliminar" />
+                  <Button fx:id="btBuscarAlquiler" mnemonicParsing="false" onAction="#buscarAlquiler" text="Buscar" />
+                  <Button fx:id="btListarAlquiler" mnemonicParsing="false" onAction="#listarAlquiler" text="Listar" />
+                  <Button mnemonicParsing="false" text="Button" />
+               </children>
+               <padding>
+                  <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+               </padding></VBox>
+      </children>
+    </AnchorPane>
+  </children>
+</VBox>
