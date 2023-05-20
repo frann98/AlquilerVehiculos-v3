@@ -1,15 +1,9 @@
 package org.iesalandalus.programacion.alquilervehiculos.vista.grafica;
 
-import org.iesalandalus.programacion.alquilervehiculos.vista.grafica.controladores.AcercaDe;
 import org.iesalandalus.programacion.alquilervehiculos.vista.grafica.controladores.MenuPrincipal;
-import org.iesalandalus.programacion.alquilervehiculos.vista.grafica.controladores.VentanaPrincipal;
-import org.iesalandalus.programacion.alquilervehiculos.vista.grafica.recursos.LocalizadorRecursos;
 import org.iesalandalus.programacion.alquilervehiculos.vista.grafica.utilidades.Controladores;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.stage.Stage;
 
 public class LanzadorPrincipal extends Application {
@@ -31,6 +25,10 @@ public class LanzadorPrincipal extends Application {
 
 	public static void comenzar() {
 		launch(LanzadorPrincipal.class);
+	}
+
+	public static void finalizar() {
+		javafx.application.Platform.exit();
 	}
 
 }

@@ -9,7 +9,6 @@ import javax.naming.OperationNotSupportedException;
 import javax.xml.parsers.DocumentBuilder;
 
 import org.iesalandalus.programacion.alquilervehiculos.modelo.dominio.Autobus;
-import org.iesalandalus.programacion.alquilervehiculos.modelo.dominio.Cliente;
 import org.iesalandalus.programacion.alquilervehiculos.modelo.dominio.Furgoneta;
 import org.iesalandalus.programacion.alquilervehiculos.modelo.dominio.Turismo;
 import org.iesalandalus.programacion.alquilervehiculos.modelo.dominio.Vehiculo;
@@ -206,6 +205,7 @@ public class Vehiculos implements IVehiculos, Serializable {
 	public Vehiculo buscar(Vehiculo vehiculo) {
 
 		int indice = instancia.coleccionVehiculos.indexOf(vehiculo);
+		Vehiculo buscado = null;
 
 		if (vehiculo == null) {
 			throw new NullPointerException("ERROR: No se puede buscar un vehículo nulo.");
@@ -213,10 +213,10 @@ public class Vehiculos implements IVehiculos, Serializable {
 
 		if (indice != -1) {
 
-			return instancia.coleccionVehiculos.get(indice);
+			buscado = instancia.coleccionVehiculos.get(indice);
 
 		}
-		return null;
+		return buscado;
 	}
 
 	@Override

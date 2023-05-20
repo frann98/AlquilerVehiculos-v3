@@ -277,7 +277,7 @@ public class Alquileres implements IAlquileres, Serializable {
 	}
 
 	@SuppressWarnings("rawtypes")
-	private Alquiler getAlquilerAbierto(Cliente cliente) throws OperationNotSupportedException {
+	private Alquiler getAlquilerAbierto(Cliente cliente) {
 
 		for (Iterator it = instancia.coleccionAlquileres.iterator(); it.hasNext();) {
 			Alquiler alquiler = (Alquiler) it.next();
@@ -311,15 +311,14 @@ public class Alquileres implements IAlquileres, Serializable {
 	}
 
 	@SuppressWarnings("rawtypes")
-	private Alquiler getAlquilerAbierto(Vehiculo vehiculo) throws OperationNotSupportedException {
+	private Alquiler getAlquilerAbierto(Vehiculo vehiculo) {
 
 		for (Iterator it = instancia.coleccionAlquileres.iterator(); it.hasNext();) {
 			Alquiler alquiler = (Alquiler) it.next();
 
 			if (alquiler.getVehiculo().equals(vehiculo) && alquiler.getFechaDevolucion() == null) {
 
-				Alquiler encontrado = alquiler;
-				return encontrado;
+				return alquiler;
 
 			}
 
@@ -332,6 +331,7 @@ public class Alquileres implements IAlquileres, Serializable {
 	public Alquiler buscar(Alquiler alquiler) {
 
 		int indice = instancia.coleccionAlquileres.indexOf(alquiler);
+		Alquiler buscado = null;
 
 		if (alquiler == null) {
 			throw new NullPointerException("ERROR: No se puede buscar un alquiler nulo.");
@@ -339,10 +339,10 @@ public class Alquileres implements IAlquileres, Serializable {
 
 		if (indice != -1) {
 
-			return instancia.coleccionAlquileres.get(indice);
+			buscado = instancia.coleccionAlquileres.get(indice);
 
 		}
-		return null;
+		return buscado;
 	}
 
 	@Override

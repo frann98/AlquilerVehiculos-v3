@@ -63,7 +63,7 @@ public class VistaTexto extends Vista {
 
 		try {
 
-			controlador.insertarCliente();
+			controlador.insertar(Consola.leerCliente());
 
 		} catch (OperationNotSupportedException e) {
 
@@ -78,7 +78,7 @@ public class VistaTexto extends Vista {
 
 		try {
 
-			controlador.insertarVehiculo();
+			controlador.insertar(Consola.leerVehiculo());
 
 		} catch (OperationNotSupportedException e) {
 
@@ -92,7 +92,7 @@ public class VistaTexto extends Vista {
 	public void insertarAlquiler() {
 
 		try {
-			controlador.insertarAlquiler();
+			controlador.insertar(Consola.leerAlquiler());
 		} catch (OperationNotSupportedException e) {
 			System.out.println("Error al insertar");
 		}
@@ -103,7 +103,7 @@ public class VistaTexto extends Vista {
 
 	public void buscarCliente() {
 
-		System.out.println(controlador.buscarCliente(Consola.leerClienteDni()).toString());
+		System.out.println(controlador.buscar(Consola.leerClienteDni()).toString());
 
 		System.out.println("Cliente buscado correctamente");
 
@@ -111,7 +111,7 @@ public class VistaTexto extends Vista {
 
 	public void buscarVehiculo() {
 
-		System.out.println(controlador.buscarVehiculo(Consola.leerVehiculoMatricula()).toString());
+		System.out.println(controlador.buscar(Consola.leerVehiculoMatricula()).toString());
 
 		System.out.println("Vehiculo buscado correctamente");
 
@@ -119,7 +119,7 @@ public class VistaTexto extends Vista {
 
 	public void buscarAlquiler() {
 
-		System.out.println(controlador.buscarAlquiler(Consola.leerAlquiler()).toString());
+		System.out.println(controlador.buscar(Consola.leerAlquiler()).toString());
 
 		System.out.println("Alquiler buscado correctamente");
 
@@ -129,7 +129,7 @@ public class VistaTexto extends Vista {
 
 		try {
 
-			controlador.modificarCliente();
+			controlador.modificar(Consola.leerClienteDni(), Consola.leerNombre(), Consola.leerTelefono());
 
 		} catch (OperationNotSupportedException e) {
 
@@ -144,7 +144,7 @@ public class VistaTexto extends Vista {
 
 		try {
 
-			controlador.devolverAlquilerCliente();
+			controlador.devolver(Consola.leerClienteDni(), Consola.leerFechaDevolucion());
 
 		} catch (OperationNotSupportedException e) {
 
@@ -159,7 +159,7 @@ public class VistaTexto extends Vista {
 
 		try {
 
-			controlador.devolverAlquilerVehiculo();
+			controlador.devolver(Consola.leerVehiculoMatricula(), Consola.leerFechaDevolucion());
 
 		} catch (OperationNotSupportedException e) {
 
@@ -174,7 +174,7 @@ public class VistaTexto extends Vista {
 
 		try {
 
-			controlador.borrarCliente();
+			controlador.borrar(Consola.leerClienteDni());
 
 		} catch (OperationNotSupportedException e) {
 
@@ -189,7 +189,7 @@ public class VistaTexto extends Vista {
 
 		try {
 
-			controlador.borrarVehiculo();
+			controlador.borrar(Consola.leerVehiculoMatricula());
 
 		} catch (OperationNotSupportedException e) {
 
@@ -204,7 +204,7 @@ public class VistaTexto extends Vista {
 
 		try {
 
-			controlador.borrarAlquiler();
+			controlador.borrar(Consola.leerAlquiler());
 
 		} catch (OperationNotSupportedException e) {
 

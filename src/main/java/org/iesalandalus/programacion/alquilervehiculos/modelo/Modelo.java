@@ -12,9 +12,6 @@ import org.iesalandalus.programacion.alquilervehiculos.modelo.negocio.IAlquilere
 import org.iesalandalus.programacion.alquilervehiculos.modelo.negocio.IClientes;
 import org.iesalandalus.programacion.alquilervehiculos.modelo.negocio.IFuenteDatos;
 import org.iesalandalus.programacion.alquilervehiculos.modelo.negocio.IVehiculos;
-import org.iesalandalus.programacion.alquilervehiculos.modelo.negocio.ficheros.Alquileres;
-import org.iesalandalus.programacion.alquilervehiculos.modelo.negocio.ficheros.Clientes;
-import org.iesalandalus.programacion.alquilervehiculos.modelo.negocio.ficheros.Vehiculos;
 
 public abstract class Modelo {
 

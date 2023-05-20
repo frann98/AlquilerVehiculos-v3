@@ -38,16 +38,19 @@
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
 
-<VBox prefHeight="400.0" prefWidth="640.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.iesalandalus.programacion.alquilervehiculos.vista.grafica.controladores.MenuPrincipal">
+<VBox prefHeight="400.0" prefWidth="640.0" style="-fx-background-color: #B7C9E2;;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.iesalandalus.programacion.alquilervehiculos.vista.grafica.controladores.MenuPrincipal">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
-        <Menu mnemonicParsing="false" text="Acerca de...">
+        <Menu mnemonicParsing="false" text="Menu">
           <items>
-            <MenuItem mnemonicParsing="false" onAction="#mostrarInfoAutor" text="Autor" />
+            <MenuItem mnemonicParsing="false" onAction="#mostrarInfoAutor" text="Acerca De..." />
                   <MenuItem mnemonicParsing="false" onAction="#salir" text="Salir" />
           </items>
         </Menu>
@@ -56,41 +59,63 @@
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" VBox.vgrow="ALWAYS">
       <children>
             <VBox alignment="TOP_CENTER" layoutX="39.0" layoutY="77.0" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
-               <children>
-                  <Label text="CLIENTES" />
-                  <Button fx:id="btInsertCliente" mnemonicParsing="false" onAction="#insertarCliente" text="Insertar" />
-                  <Button fx:id="btModificarCliente" mnemonicParsing="false" onAction="#modificarCliente" text="Modificar" />
-                  <Button fx:id="btEliminarCliente" mnemonicParsing="false" onAction="#eliminarCliente" text="Eliminar" />
-                  <Button fx:id="btBuscarCliente" mnemonicParsing="false" onAction="#buscarCliente" text="Buscar" />
-                  <Button fx:id="btListarClientes" mnemonicParsing="false" onAction="#listarCliente" text="Listar" />
-               </children>
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding></VBox>
             <VBox alignment="TOP_CENTER" layoutX="254.0" layoutY="77.0" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
-               <children>
-                  <Label text="VEHICULOS" />
-                  <Button fx:id="btInsertarVehiculo" mnemonicParsing="false" onAction="#insertarVehiculo" text="Insertar" />
-                  <Button fx:id="btEliminarVehiculo" mnemonicParsing="false" onAction="#eliminarVehiculo" text="Eliminar" />
-                  <Button fx:id="btBuscarVehiculo" mnemonicParsing="false" onAction="#buscarVehiculo" text="Buscar" />
-                  <Button fx:id="btListarVehiculo" mnemonicParsing="false" onAction="#listarVehiculos" text="Listar" />
-                  <Button fx:id="btMostrarEstadisticas" mnemonicParsing="false" onAction="#mostrarEstadisticasMensuales" text="Estadísticas" />
-               </children>
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding></VBox>
             <VBox alignment="TOP_CENTER" layoutX="471.0" layoutY="77.0" prefHeight="200.0" prefWidth="100.0" spacing="10.0">
-               <children>
-                  <Label text="ALQUILERES" />
-                  <Button fx:id="btInsertarAlquiler" mnemonicParsing="false" onAction="#insertarAlquiler" text="Insertar" />
-                  <Button fx:id="btEliminarAlquiler" mnemonicParsing="false" onAction="#eliminarAlquiler" text="Eliminar" />
-                  <Button fx:id="btBuscarAlquiler" mnemonicParsing="false" onAction="#buscarAlquiler" text="Buscar" />
-                  <Button fx:id="btListarAlquiler" mnemonicParsing="false" onAction="#listarAlquiler" text="Listar" />
-                  <Button mnemonicParsing="false" text="Button" />
-               </children>
                <padding>
                   <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
                </padding></VBox>
+            <Label layoutX="50.0" layoutY="10.0" style="-fx-background-color: #999999;" text="CLIENTES">
+               <font>
+                  <Font size="18.0" />
+               </font></Label>
+            <ImageView fx:id="ivPerson" fitHeight="102.0" fitWidth="100.0" layoutX="41.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/PersonIcon.svg.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="btInsertCliente" layoutX="60.0" layoutY="147.0" mnemonicParsing="false" onAction="#insertarCliente" text="Insertar" />
+            <Button fx:id="btModificarCliente" layoutX="56.0" layoutY="183.0" mnemonicParsing="false" onAction="#modificarCliente" text="Modificar" />
+            <Button fx:id="btEliminarCliente" layoutX="60.0" layoutY="219.0" mnemonicParsing="false" onAction="#eliminarCliente" text="Eliminar" />
+            <Button fx:id="btBuscarCliente" layoutX="63.0" layoutY="255.0" mnemonicParsing="false" onAction="#buscarCliente" text="Buscar" />
+            <Button fx:id="btListarClientes" layoutX="67.0" layoutY="291.0" mnemonicParsing="false" onAction="#listarCliente" text="Listar" />
+            <Button fx:id="btDevolverPorCliente" layoutX="51.0" layoutY="327.0" mnemonicParsing="false" onAction="#devolverPorCliente" text="Devolución" />
+            <Button fx:id="btInsertarVehiculo" layoutX="275.0" layoutY="183.0" mnemonicParsing="false" onAction="#insertarVehiculo" text="Insertar" />
+            <Button fx:id="btEliminarVehiculo" layoutX="275.0" layoutY="219.0" mnemonicParsing="false" onAction="#eliminarVehiculo" text="Eliminar" />
+            <Button fx:id="btBuscarVehiculo" layoutX="278.0" layoutY="255.0" mnemonicParsing="false" onAction="#buscarVehiculo" text="Buscar" />
+            <Button fx:id="btListarVehiculo" layoutX="282.0" layoutY="291.0" mnemonicParsing="false" onAction="#listarVehiculos" text="Listar" />
+            <Button fx:id="btDevolverPorVehiculo" layoutX="266.0" layoutY="327.0" mnemonicParsing="false" onAction="#devolverPorVehiculo" text="Devolución" />
+            <Button fx:id="btInsertarAlquiler" layoutX="492.0" layoutY="152.0" mnemonicParsing="false" onAction="#insertarAlquiler" text="Insertar" />
+            <Button fx:id="btEliminarAlquiler" layoutX="491.0" layoutY="188.0" mnemonicParsing="false" onAction="#eliminarAlquiler" text="Eliminar" />
+            <Button fx:id="btBuscarAlquiler" layoutX="495.0" layoutY="224.0" mnemonicParsing="false" onAction="#buscarAlquiler" text="Buscar" />
+            <Button fx:id="btListarAlquiler" layoutX="499.0" layoutY="260.0" mnemonicParsing="false" onAction="#listarAlquiler" text="Listar" />
+            <Button fx:id="btDevolverAlquiler" layoutX="483.0" layoutY="296.0" mnemonicParsing="false" onAction="#devolverAlquiler" text="Devolución" />
+            <Button fx:id="btEstadisticasMensuales" layoutX="482.0" layoutY="332.0" mnemonicParsing="false" onAction="#mostrarEstadisticasMensuales" text="Estadísticas" />
+            <Label layoutX="256.0" layoutY="10.0" style="-fx-background-color: #999999;" text="VEHICULOS">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label layoutX="474.0" layoutY="10.0" style="-fx-background-color: #999999;" text="ALQUILERES">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <ImageView fx:id="ivPerson1" fitHeight="102.0" fitWidth="100.0" layoutX="255.0" layoutY="37.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/CarIcon.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="ivPerson11" fitHeight="94.0" fitWidth="94.0" layoutX="476.0" layoutY="44.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../imagenes/DocumentIcon.png" />
+               </image>
+            </ImageView>
       </children>
     </AnchorPane>
   </children>

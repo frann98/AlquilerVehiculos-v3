@@ -1,5 +1,6 @@
 package org.iesalandalus.programacion.alquilervehiculos.controlador;
 
+import java.time.LocalDate;
 import java.util.List;
 
 import javax.naming.OperationNotSupportedException;
@@ -9,7 +10,6 @@ import org.iesalandalus.programacion.alquilervehiculos.modelo.dominio.Alquiler;
 import org.iesalandalus.programacion.alquilervehiculos.modelo.dominio.Cliente;
 import org.iesalandalus.programacion.alquilervehiculos.modelo.dominio.Vehiculo;
 import org.iesalandalus.programacion.alquilervehiculos.vista.Vista;
-import org.iesalandalus.programacion.alquilervehiculos.vista.texto.Consola;
 
 public class Controlador {
 
@@ -51,75 +51,75 @@ public class Controlador {
 
 	}
 
-	public void insertarCliente() throws OperationNotSupportedException {
+	public void insertar(Cliente cliente) throws OperationNotSupportedException {
 
-		modelo.insertar(Consola.leerCliente());
-
-	}
-
-	public void insertarVehiculo() throws OperationNotSupportedException {
-
-		modelo.insertar(Consola.leerVehiculo());
+		modelo.insertar(cliente);
 
 	}
 
-	public void insertarAlquiler() throws OperationNotSupportedException {
+	public void insertar(Vehiculo vehiculo) throws OperationNotSupportedException {
 
-		modelo.insertar(Consola.leerAlquiler());
+		modelo.insertar(vehiculo);
 
 	}
 
-	public Cliente buscarCliente(Cliente cliente) {
+	public void insertar(Alquiler alquiler) throws OperationNotSupportedException {
+
+		modelo.insertar(alquiler);
+
+	}
+
+	public Cliente buscar(Cliente cliente) {
 
 		return modelo.buscar(cliente);
 
 	}
 
-	public Vehiculo buscarVehiculo(Vehiculo vehiculo) {
+	public Vehiculo buscar(Vehiculo vehiculo) {
 
 		return modelo.buscar(vehiculo);
 
 	}
 
-	public Alquiler buscarAlquiler(Alquiler alquiler) {
+	public Alquiler buscar(Alquiler alquiler) {
 
 		return modelo.buscar(alquiler);
 
 	}
 
-	public void modificarCliente() throws OperationNotSupportedException {
+	public void modificar(Cliente cliente, String nombre, String telefono) throws OperationNotSupportedException {
 
-		modelo.modificar(Consola.leerClienteDni(), Consola.leerNombre(), Consola.leerTelefono());
-
-	}
-
-	public void devolverAlquilerCliente() throws OperationNotSupportedException {
-
-		modelo.devolver(Consola.leerClienteDni(), Consola.leerFechaDevolucion());
+		modelo.modificar(cliente, nombre, telefono);
 
 	}
 
-	public void devolverAlquilerVehiculo() throws OperationNotSupportedException {
+	public void devolver(Cliente cliente, LocalDate fechaDevolucion) throws OperationNotSupportedException {
 
-		modelo.devolver(Consola.leerVehiculoMatricula(), Consola.leerFechaDevolucion());
-
-	}
-
-	public void borrarCliente() throws OperationNotSupportedException {
-
-		modelo.borrar(Consola.leerClienteDni());
+		modelo.devolver(cliente, fechaDevolucion);
 
 	}
 
-	public void borrarVehiculo() throws OperationNotSupportedException {
+	public void devolver(Vehiculo vehiculo, LocalDate fechaDevolucion) throws OperationNotSupportedException {
 
-		modelo.borrar(Consola.leerVehiculoMatricula());
+		modelo.devolver(vehiculo, fechaDevolucion);
 
 	}
 
-	public void borrarAlquiler() throws OperationNotSupportedException {
+	public void borrar(Cliente cliente) throws OperationNotSupportedException {
 
-		modelo.borrar(Consola.leerAlquiler());
+		modelo.borrar(cliente);
+
+	}
+
+	public void borrar(Vehiculo vehiculo) throws OperationNotSupportedException {
+
+		modelo.borrar(vehiculo);
+
+	}
+
+	public void borrar(Alquiler alquiler) throws OperationNotSupportedException {
+
+		modelo.borrar(alquiler);
 
 	}
 
