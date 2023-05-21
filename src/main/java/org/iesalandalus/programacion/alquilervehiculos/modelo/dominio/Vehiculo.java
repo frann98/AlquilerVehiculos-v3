@@ -69,13 +69,11 @@ public abstract class Vehiculo implements Serializable {
 			throw new NullPointerException("ERROR: La marca no puede ser nula.");
 		}
 
-		if (marca.matches("")) {
-			throw new IllegalArgumentException("ERROR: La marca no tiene un formato válido.");
-		} // Esta comprobación me veo obligado a hacerla, ya que, aunque debería estar
+		 // Esta comprobación me veo obligado a hacerla, ya que, aunque debería estar
 			// cubierta por la siguiente, al intentar pasar los test, se nos dice lo
 			// contrario
 
-		if (!marca.matches(ER_MARCA)) {
+		if (marca.matches("") || !marca.matches(ER_MARCA)) {
 			throw new IllegalArgumentException("ERROR: La marca no tiene un formato válido.");
 		}
 		this.marca = marca;

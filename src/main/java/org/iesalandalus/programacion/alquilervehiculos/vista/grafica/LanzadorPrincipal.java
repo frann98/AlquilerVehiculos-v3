@@ -8,6 +8,7 @@ import javafx.stage.Stage;
 
 public class LanzadorPrincipal extends Application {
 
+	@Override
 	public void start(Stage escenarioPrincipal) {
 
 		try {

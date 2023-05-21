@@ -30,6 +30,9 @@ public class VdevolverPorAlquiler extends Controlador {
 	private Label lblDNIoMatricula;
 
 	@FXML
+	private Label lblFechaAlquiler;
+
+	@FXML
 	private RadioButton rbCliente;
 
 	@FXML
@@ -49,6 +52,11 @@ public class VdevolverPorAlquiler extends Controlador {
 
 	public void inicializar() {
 
+		dpFechaDevolucion.setVisible(false);
+		lblDNIoMatricula.setVisible(false);
+		lblFechaAlquiler.setVisible(false);
+		tfDNIoMatriculaDevolver.setVisible(false);
+
 		ToggleGroup DNIoMatricula = new ToggleGroup();
 
 		rbCliente.setToggleGroup(DNIoMatricula);
@@ -57,12 +65,20 @@ public class VdevolverPorAlquiler extends Controlador {
 		rbCliente.setOnAction(event -> {
 
 			lblDNIoMatricula.setText("DNI del cliente a devolver:");
+			dpFechaDevolucion.setVisible(true);
+			lblDNIoMatricula.setVisible(true);
+			lblFechaAlquiler.setVisible(true);
+			tfDNIoMatriculaDevolver.setVisible(true);
 
 		});
 
 		rbVehiculo.setOnAction(event -> {
 
 			lblDNIoMatricula.setText("Matricula del vehiculo a devolver:");
+			dpFechaDevolucion.setVisible(true);
+			lblDNIoMatricula.setVisible(true);
+			lblFechaAlquiler.setVisible(true);
+			tfDNIoMatriculaDevolver.setVisible(true);
 
 		});
 

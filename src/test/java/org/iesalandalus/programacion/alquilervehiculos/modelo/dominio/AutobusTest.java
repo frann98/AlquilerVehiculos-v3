@@ -9,7 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class AutobusTest {
-	
+
 	private static final String MENSAJE_ERROR_MARCA_NULA = "ERROR: La marca no puede ser nula.";
 	private static final String MENSAJE_ERROR_FORMATO_MARCA_NO_VALIDA = "ERROR: La marca no tiene un formato válido.";
 	private static final String MENSAJE_ERROR_MODELO_NULO = "ERROR: El modelo no puede ser nulo.";
@@ -18,14 +18,14 @@ public class AutobusTest {
 	private static final String MENSAJE_ERROR_MATRICULA_NULA = "ERROR: La matrícula no puede ser nula.";
 	private static final String MENSAJE_ERROR_FORMATO_MATRICULA_NO_VALIDA = "ERROR: La matrícula no tiene un formato válido.";
 	private static final String MENSAJE_ERROR_VEHICULO_NULO = "ERROR: No es posible copiar un vehículo nulo.";
-	
+
 	private static final String MARCA_VALIDA = "Mercedes-Benz";
 	private static final String MODELO_VALIDO = "Citaro K";
 	private static final int PLAZAS_VALIDAS = 60;
 	private static final String MATRICULA_VALIDA = "1234BCD";
-	
+
 	private Autobus autobus;
-	
+
 	@BeforeEach
 	void init() {
 		autobus = new Autobus(MARCA_VALIDA, MODELO_VALIDO, PLAZAS_VALIDAS, MATRICULA_VALIDA);
@@ -43,7 +43,7 @@ public class AutobusTest {
 		autobus = new Autobus("Rolls-Royce", MODELO_VALIDO, PLAZAS_VALIDAS, MATRICULA_VALIDA);
 		autobus = new Autobus("SsangYong", MODELO_VALIDO, PLAZAS_VALIDAS, MATRICULA_VALIDA);
 	}
-	
+
 	@Test
 	void constructorMarcaNoValidaModeloValidoPlazasValidasMatrivaValidaLanzaExcepcion() {
 		NullPointerException npe = assertThrows(NullPointerException.class, () -> new Autobus(null, MODELO_VALIDO, PLAZAS_VALIDAS, MATRICULA_VALIDA));
@@ -61,7 +61,7 @@ public class AutobusTest {
 		iae = assertThrows(IllegalArgumentException.class, () -> new Autobus("aa bb", MODELO_VALIDO, PLAZAS_VALIDAS, MATRICULA_VALIDA));
 		assertEquals(MENSAJE_ERROR_FORMATO_MARCA_NO_VALIDA, iae.getMessage());
 	}
-	
+
 	@Test
 	void constructorMarcaValidaModeloNoValidoPlazasValidasMatrivaValidaLanzaExcepcion() {
 		NullPointerException npe = assertThrows(NullPointerException.class, () -> new Autobus(MARCA_VALIDA, null, PLAZAS_VALIDAS, MATRICULA_VALIDA));
@@ -73,7 +73,7 @@ public class AutobusTest {
 		iae = assertThrows(IllegalArgumentException.class, () -> new Autobus(MARCA_VALIDA, "	", PLAZAS_VALIDAS, MATRICULA_VALIDA));
 		assertEquals(MENSAJE_ERROR_MODELO_BLANCO, iae.getMessage());
 	}
-	
+
 	@Test
 	void constructorMarcaValidaModeloValidoPlazasNoValidaaMatrivaValidaLanzaExcepcion() {
 		IllegalArgumentException iae = assertThrows(IllegalArgumentException.class, () -> new Autobus(MARCA_VALIDA, MODELO_VALIDO, 6, MATRICULA_VALIDA));
@@ -81,7 +81,7 @@ public class AutobusTest {
 		iae = assertThrows(IllegalArgumentException.class, () -> new Autobus(MARCA_VALIDA, MODELO_VALIDO, 101, MATRICULA_VALIDA));
 		assertEquals(MENSAJE_ERROR_PLAZAS_NO_VALIDAS, iae.getMessage());
 	}
-	
+
 	@Test
 	void constructorMarcaValidaModeloValidoPlazasValidasMatrivaNoValidaLanzaExcepcion() {
 		NullPointerException npe = assertThrows(NullPointerException.class, () -> new Autobus(MARCA_VALIDA, MODELO_VALIDO, PLAZAS_VALIDAS, null));
@@ -95,7 +95,7 @@ public class AutobusTest {
 		iae = assertThrows(IllegalArgumentException.class, () -> new Autobus(MARCA_VALIDA, MODELO_VALIDO, PLAZAS_VALIDAS, "234BCD"));
 		assertEquals(MENSAJE_ERROR_FORMATO_MATRICULA_NO_VALIDA, iae.getMessage());
 	}
-	
+
 	@Test
 	void constructorAutobusValidoCopiaAutobusCorrectamente() {
 		Autobus autobusCopia = new Autobus(autobus);
@@ -106,14 +106,14 @@ public class AutobusTest {
 		assertEquals(PLAZAS_VALIDAS, autobusCopia.getPlazas());
 		assertEquals(MATRICULA_VALIDA, autobusCopia.getMatricula());
 	}
-	
+
 	@Test
 	void constructorAutobusNuloLanzaExcepcion() {
 		NullPointerException npe = assertThrows(NullPointerException.class, () -> new Autobus(null));
 		assertEquals(MENSAJE_ERROR_VEHICULO_NULO, npe.getMessage());
 	}
-	
-	
+
+
 	@Test
 	void equalsYHasCodeConsistentes() {
 		Vehiculo autobusIgual = new Autobus(autobus);
@@ -127,7 +127,7 @@ public class AutobusTest {
 		assertNotEquals(autobus.hashCode(), autobusDiferente.hashCode());
 		assertNotEquals(autobus, null);
 	}
-	
+
 	@Test
 	void toStringDevuelveLaCadenaEsperada() {
 		assertEquals(String.format("%s %s (%d plazas) - %s", MARCA_VALIDA, MODELO_VALIDO, PLAZAS_VALIDAS, MATRICULA_VALIDA), autobus.toString());

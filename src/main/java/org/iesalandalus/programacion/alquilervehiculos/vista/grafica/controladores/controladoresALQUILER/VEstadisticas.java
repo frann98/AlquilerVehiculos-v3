@@ -4,6 +4,7 @@ import java.time.LocalDate;
 import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
 import java.util.List;
+
 import org.iesalandalus.programacion.alquilervehiculos.modelo.dominio.Alquiler;
 import org.iesalandalus.programacion.alquilervehiculos.vista.grafica.VistaGrafica;
 import org.iesalandalus.programacion.alquilervehiculos.vista.grafica.utilidades.Controlador;
@@ -48,24 +49,24 @@ public class VEstadisticas extends Controlador {
 		int furgonetas = 0;
 		int autobuses = 0;
 
-		for (int j = 0; j < listaAlquileres.size(); j++) {
+		for (Alquiler listaAlquilere : listaAlquileres) {
 
-			if (TipoVehiculo.get(listaAlquileres.get(j).getVehiculo()).equals(TipoVehiculo.TURISMO)
-					&& listaAlquileres.get(j).getFechaAlquiler().getMonthValue() == fecha.getMonthValue()) {
+			if (TipoVehiculo.get(listaAlquilere.getVehiculo()).equals(TipoVehiculo.TURISMO)
+					&& listaAlquilere.getFechaAlquiler().getMonthValue() == fecha.getMonthValue()) {
 
 				turismos++;
 
 			}
 
-			if (TipoVehiculo.get(listaAlquileres.get(j).getVehiculo()).equals(TipoVehiculo.FURGONETA)
-					&& listaAlquileres.get(j).getFechaAlquiler().getMonthValue() == fecha.getMonthValue()) {
+			if (TipoVehiculo.get(listaAlquilere.getVehiculo()).equals(TipoVehiculo.FURGONETA)
+					&& listaAlquilere.getFechaAlquiler().getMonthValue() == fecha.getMonthValue()) {
 
 				furgonetas++;
 
 			}
 
-			if (TipoVehiculo.get(listaAlquileres.get(j).getVehiculo()).equals(TipoVehiculo.AUTOBUS)
-					&& listaAlquileres.get(j).getFechaAlquiler().getMonthValue() == fecha.getMonthValue()) {
+			if (TipoVehiculo.get(listaAlquilere.getVehiculo()).equals(TipoVehiculo.AUTOBUS)
+					&& listaAlquilere.getFechaAlquiler().getMonthValue() == fecha.getMonthValue()) {
 
 				autobuses++;
 

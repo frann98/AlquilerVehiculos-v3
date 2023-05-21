@@ -135,9 +135,9 @@ public class ModeloCascada extends Modelo {
 
 		List<Alquiler> alquileresCliente = getAlquileres().get(cliente);
 
-		for (int j = 0; j < alquileresCliente.size(); j++) {
+		for (Alquiler element : alquileresCliente) {
 
-			getAlquileres().borrar(alquileresCliente.get(j));
+			getAlquileres().borrar(element);
 
 		}
 
@@ -154,9 +154,9 @@ public class ModeloCascada extends Modelo {
 
 		List<Alquiler> alquileresTurismo = getAlquileres().get(turismo);
 
-		for (int j = 0; j < alquileresTurismo.size(); j++) {
+		for (Alquiler element : alquileresTurismo) {
 
-			getAlquileres().borrar(alquileresTurismo.get(j));
+			getAlquileres().borrar(element);
 
 		}
 

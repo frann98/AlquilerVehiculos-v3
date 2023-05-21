@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.text.Font?>
 
-<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="10.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.iesalandalus.programacion.alquilervehiculos.vista.grafica.controladores.controladoresALQUILER.vInsertarAlquiler">
+<HBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" spacing="10.0" style="-fx-background-color: #6699cc;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.iesalandalus.programacion.alquilervehiculos.vista.grafica.controladores.controladoresALQUILER.vInsertarAlquiler">
    <children>
       <AnchorPane prefHeight="400.0" prefWidth="601.0">
          <children>
@@ -38,8 +38,8 @@
             </Label>
             <TextField fx:id="tfMatriculaVehiculo" layoutX="248.0" layoutY="105.0" />
             <TextField fx:id="tfDNIcliente" layoutX="248.0" layoutY="163.0" />
-            <Button fx:id="btAceptar" layoutX="122.0" layoutY="311.0" mnemonicParsing="false" onAction="#insertarNuevoAlquiler" text="Aceptar" />
-            <Button fx:id="btCancelar" layoutX="346.0" layoutY="311.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
+            <Button fx:id="btAceptar" layoutX="147.0" layoutY="312.0" mnemonicParsing="false" onAction="#insertarNuevoAlquiler" text="Aceptar" />
+            <Button fx:id="btCancelar" layoutX="371.0" layoutY="312.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
             <DatePicker fx:id="dpFechaAlquiler" layoutX="248.0" layoutY="220.0" promptText="Seleccionar fecha" />
          </children>
       </AnchorPane>

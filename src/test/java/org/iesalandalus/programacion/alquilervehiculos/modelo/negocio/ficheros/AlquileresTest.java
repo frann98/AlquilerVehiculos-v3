@@ -68,7 +68,7 @@ public class AlquileresTest {
 		turismo2 = mock();
 		when(turismo2.getMatricula()).thenReturn("1111BBB");
 	}
-	
+
 	@BeforeEach
 	void init() {
 		alquileres = Alquileres.getInstancia();
@@ -97,7 +97,7 @@ public class AlquileresTest {
 	void constructorCreaAlquilersCorrectamente() {
 		assertNotNull(alquileres);
 	}
-	
+
 	@Test
 	void getDevuelveAlquileresCorrectamente() {
 		assertDoesNotThrow(() -> alquileres.insertar(alquiler1));
@@ -108,7 +108,7 @@ public class AlquileresTest {
 		assertSame(alquiler1, copiaAlquileres.get(copiaAlquileres.indexOf(alquiler1)));
 		assertSame(alquiler4, copiaAlquileres.get(copiaAlquileres.indexOf(alquiler4)));
 	}
-	
+
 	@Test
 	void getClienteValidoDevuelveAlquileresClienteCorrectamente() {
 		assertDoesNotThrow(() -> alquileres.insertar(alquiler1));
@@ -123,7 +123,7 @@ public class AlquileresTest {
 		assertEquals(alquiler2, alquileresCliente.get(1));
 		assertSame(alquiler2, alquileresCliente.get(1));
 	}
-	
+
 	@Test
 	void getTurismoValidoDevuelveAlquileresClienteCorrectamente() {
 		assertDoesNotThrow(() -> alquileres.insertar(alquiler1));
@@ -138,33 +138,33 @@ public class AlquileresTest {
 		assertEquals(alquiler4, alquileresTurismo.get(1));
 		assertSame(alquiler4,alquileresTurismo.get(1));
 	}
-	
+
 	@Test
 	void insertarAlquilerValidoInsertaCorrectamente() {
 		assertDoesNotThrow(() -> alquileres.insertar(alquiler1));
 		assertSame(alquiler1, alquileres.buscar(alquiler1));
 	}
-	
+
 	@Test
 	void insertarAlquilerNuloLanzaExcepcion() {
 		NullPointerException npe = assertThrows(NullPointerException.class, () -> alquileres.insertar(null));
 		assertEquals(MENSAJE_ERROR_INSERTAR_ALQUILER_NULO, npe.getMessage());
 	}
-	
+
 	@Test
 	void insertarAlquilerClienteAlquilerAbiertoLanzaExcepcion() {
 		assertDoesNotThrow(() -> alquileres.insertar(alquiler1));
 		OperationNotSupportedException onse = assertThrows(OperationNotSupportedException.class, () -> alquileres.insertar(alquiler2));
 		assertEquals(MENSAJE_ERROR_INSERTAR_ALQUILER_CLIENTE_ALQUILER_ABIERTO, onse.getMessage());
 	}
-	
+
 	@Test
 	void insertarAlquilerTurismoAlquilerAbiertoLanzaExcepcion() {
 		assertDoesNotThrow(() -> alquileres.insertar(alquiler1));
 		OperationNotSupportedException onse = assertThrows(OperationNotSupportedException.class, () -> alquileres.insertar(alquiler4));
 		assertEquals(MENSAJE_ERROR_INSERTAR_ALQUILER_VEHICULO_ALQUILADO, onse.getMessage());
 	}
-	
+
 	@Test
 	void insertarAlquilerClienteAlquilerAnteiorLanzaExcepcion() {
 		assertDoesNotThrow(() -> alquileres.insertar(alquiler1));
@@ -178,7 +178,7 @@ public class AlquileresTest {
 		OperationNotSupportedException onse = assertThrows(OperationNotSupportedException.class, () -> alquileres.insertar(alquiler2));
 		assertEquals(MENSAJE_ERROR_INSERTAR_ALQUILER_CLIENTE_OTRO_POSTERIOR, onse.getMessage());
 	}
-	
+
 	@Test
 	void insertarAlquilerTurismoAlquilerAnteriorLanzaExcepcion() {
 		assertDoesNotThrow(() -> alquileres.insertar(alquiler1));
@@ -192,7 +192,7 @@ public class AlquileresTest {
 		OperationNotSupportedException onse = assertThrows(OperationNotSupportedException.class, () -> alquileres.insertar(alquiler4));
 		assertEquals(MENSAJE_ERROR_INSERTAR_ALQUILER_VEHICULO_OTRO_POSTERIOR, onse.getMessage());
 	}
-	
+
 	@Test
 	void devolverClienteConAlquilerAbiertoDevuelveCorrectamente() {
 		assertDoesNotThrow(() -> alquileres.insertar(alquiler1));
@@ -201,7 +201,7 @@ public class AlquileresTest {
 		Alquiler alquiler = alquileres.buscar(alquiler1);
 		assertEquals(ayer, alquiler.getFechaDevolucion());
 	}
-	
+
 	@Test
 	void devolverClienteNuloLanzaExcepcion() {
 		assertDoesNotThrow(() -> alquileres.insertar(alquiler1));
@@ -209,13 +209,13 @@ public class AlquileresTest {
 		NullPointerException npe = assertThrows(NullPointerException.class, () -> alquileres.devolver(cliente, ayer));
 		assertEquals(MENSAJE_ERROR_DEVOLVER_CLIENTE_NULO, npe.getMessage());
 	}
-	
+
 	@Test
 	void devolverClienteSinAlquilerAbiertoLanzaExcepcion() {
 		OperationNotSupportedException onse = assertThrows(OperationNotSupportedException.class, () -> alquileres.devolver(cliente1, hoy));
 		assertEquals(MENSAJE_ERROR_DEVOLVER_CLIENTE_SIN_ALQUILER_ABIERTO, onse.getMessage());
 	}
-	
+
 	@Test
 	void devolverVehiculoConAlquilerAbiertoDevuelveCorrectamente() {
 		assertDoesNotThrow(() -> alquileres.insertar(alquiler1));
@@ -224,7 +224,7 @@ public class AlquileresTest {
 		Alquiler alquiler = alquileres.buscar(alquiler1);
 		assertEquals(ayer, alquiler.getFechaDevolucion());
 	}
-	
+
 	@Test
 	void devolverVehiculoNuloLanzaExcepcion() {
 		assertDoesNotThrow(() -> alquileres.insertar(alquiler1));
@@ -232,20 +232,20 @@ public class AlquileresTest {
 		NullPointerException npe = assertThrows(NullPointerException.class, () -> alquileres.devolver(vehiculo, ayer));
 		assertEquals(MENSAJE_ERROR_DEVOLVER_VEHICULO_NULO, npe.getMessage());
 	}
-	
+
 	@Test
 	void devolverVehiculoSinAlquilerAbiertoLanzaExcepcion() {
 		OperationNotSupportedException onse = assertThrows(OperationNotSupportedException.class, () -> alquileres.devolver(turismo1, hoy));
 		assertEquals(MENSAJE_ERROR_DEVOLVER_VEHICULO_SIN_ALQUILER_ABIERTO, onse.getMessage());
 	}
-	
+
 	@Test
 	void borrarAlquilerExistenteBorraAlquilerCorrectamente() {
 		assertDoesNotThrow(() -> alquileres.insertar(alquiler1));
 		assertDoesNotThrow(() -> alquileres.borrar(alquiler1));
 		assertNull(alquileres.buscar(alquiler1));
 	}
-	
+
 	@Test
 	void borrarAlquilerNoExistenteLanzaExcepcion() {
 		assertDoesNotThrow(() -> alquileres.insertar(alquiler1));
@@ -259,19 +259,19 @@ public class AlquileresTest {
 		NullPointerException npe = assertThrows(NullPointerException.class, () -> alquileres.borrar(null));
 		assertEquals(MENSAJE_ERROR_BORRAR_ALQUILER_NULO, npe.getMessage());
 	}
-	
+
 	@Test
 	void busarAlquilerExistenteDevuelveAlquilerCorrectamente() {
 		assertDoesNotThrow(() -> alquileres.insertar(alquiler1));
 		assertEquals(alquiler1, alquileres.buscar(alquiler1));
 		assertSame(alquiler1, alquileres.buscar(alquiler1));
 	}
-	
+
 	@Test
 	void busarAlquilerNoExistenteDevuelveAlquilerNulo() {
 		assertNull(alquileres.buscar(alquiler1));
 	}
-	
+
 	@Test
 	void buscarAlquilerNuloLanzaExcepcion() {
 		assertDoesNotThrow(() -> alquileres.insertar(alquiler1));

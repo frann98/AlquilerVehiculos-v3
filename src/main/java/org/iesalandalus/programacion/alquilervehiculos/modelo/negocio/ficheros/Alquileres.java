@@ -223,42 +223,43 @@ public class Alquileres implements IAlquileres, Serializable {
 	private void comprobarAlquiler(Cliente cliente, Vehiculo vehiculo, LocalDate fechaAlquiler)
 			throws OperationNotSupportedException {
 
-		for (int i = 0; i < instancia.coleccionAlquileres.size(); i++) {
+		for (Alquiler element : instancia.coleccionAlquileres) {
 
 			// Cliente con fecha nula
 
-			if (instancia.coleccionAlquileres.get(i).getCliente().equals(cliente)
-					&& instancia.coleccionAlquileres.get(i).getFechaDevolucion() == null) {
+			if (element.getCliente().equals(cliente)
+					&& element.getFechaDevolucion() == null) {
 				throw new OperationNotSupportedException("ERROR: El cliente tiene otro alquiler sin devolver.");
 			}
 
 			// Cliente con fecha posterior
 
-			if (instancia.coleccionAlquileres.get(i).getCliente().equals(cliente)
-					&& instancia.coleccionAlquileres.get(i).getFechaDevolucion() != null
-					&& (instancia.coleccionAlquileres.get(i).getFechaDevolucion().isAfter(fechaAlquiler)
-							|| instancia.coleccionAlquileres.get(i).getFechaDevolucion().isEqual(fechaAlquiler))) {
+			if (element.getCliente().equals(cliente)
+					&& element.getFechaDevolucion() != null
+					&& (element.getFechaDevolucion().isAfter(fechaAlquiler)
+							|| element.getFechaDevolucion().isEqual(fechaAlquiler))) {
 				throw new OperationNotSupportedException("ERROR: El cliente tiene un alquiler posterior.");
 			}
 
 			// Vehiculo con fecha nula
 
-			if (instancia.coleccionAlquileres.get(i).getVehiculo().equals(vehiculo)
-					&& instancia.coleccionAlquileres.get(i).getFechaDevolucion() == null) {
+			if (element.getVehiculo().equals(vehiculo)
+					&& element.getFechaDevolucion() == null) {
 				throw new OperationNotSupportedException("ERROR: El vehículo está actualmente alquilado.");
 			}
 
 			// Vehiculo con fecha posterior
 
-			if (instancia.coleccionAlquileres.get(i).getVehiculo().equals(vehiculo)
-					&& instancia.coleccionAlquileres.get(i).getFechaDevolucion() != null
-					&& (instancia.coleccionAlquileres.get(i).getFechaDevolucion().isAfter(fechaAlquiler)
-							|| instancia.coleccionAlquileres.get(i).getFechaDevolucion().isEqual(fechaAlquiler))) {
+			if (element.getVehiculo().equals(vehiculo)
+					&& element.getFechaDevolucion() != null
+					&& (element.getFechaDevolucion().isAfter(fechaAlquiler)
+							|| element.getFechaDevolucion().isEqual(fechaAlquiler))) {
 				throw new OperationNotSupportedException("ERROR: El vehículo tiene un alquiler posterior.");
 			}
 		}
 	}
 
+	@Override
 	public void devolver(Cliente cliente, LocalDate fechaDevolucion) throws OperationNotSupportedException {
 
 		Alquiler abierto = getAlquilerAbierto(cliente);
@@ -293,6 +294,7 @@ public class Alquileres implements IAlquileres, Serializable {
 		return null;
 	}
 
+	@Override
 	public void devolver(Vehiculo vehiculo, LocalDate fechaDevolucion) throws OperationNotSupportedException {
 
 		Alquiler abierto = getAlquilerAbierto(vehiculo);

@@ -12,6 +12,6 @@ import org.junit.platform.suite.api.SelectClasses;
 import org.junit.platform.suite.api.Suite;
 
 @Suite
-@SelectClasses({ ClienteTest.class, ClientesTest.class, TurismoTest.class, AutobusTest.class, FurgonetaTest.class, 
+@SelectClasses({ ClienteTest.class, ClientesTest.class, TurismoTest.class, AutobusTest.class, FurgonetaTest.class,
 	VehiculosTest.class, AlquilerTest.class, AlquileresTest.class, ModeloTest.class })
 public class AllTests { }

@@ -1,12 +1,11 @@
 package org.iesalandalus.programacion.alquilervehiculos.vista.texto;
 
-import javax.naming.OperationNotSupportedException;
-
 @SuppressWarnings("unused")
 public enum Accion {
 
 	SALIR("Salir") {
 
+		@Override
 		public void ejecutar() {
 			vista.terminar();
 
@@ -14,6 +13,7 @@ public enum Accion {
 	},
 	INSERTAR_CLIENTE("Insertar cliente") {
 
+		@Override
 		public void ejecutar() {
 			vista.insertarCliente();
 

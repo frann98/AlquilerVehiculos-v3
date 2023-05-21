@@ -1,10 +1,10 @@
 package org.iesalandalus.programacion.alquilervehiculos.vista.grafica.controladores;
 
 import org.iesalandalus.programacion.alquilervehiculos.vista.grafica.LanzadorPrincipal;
-import org.iesalandalus.programacion.alquilervehiculos.vista.grafica.controladores.controladoresALQUILER.VdevolverPorAlquiler;
-import org.iesalandalus.programacion.alquilervehiculos.vista.grafica.controladores.controladoresALQUILER.VtablaAlquileres;
 import org.iesalandalus.programacion.alquilervehiculos.vista.grafica.controladores.controladoresALQUILER.VEstadisticas;
+import org.iesalandalus.programacion.alquilervehiculos.vista.grafica.controladores.controladoresALQUILER.VtablaAlquileres;
 import org.iesalandalus.programacion.alquilervehiculos.vista.grafica.controladores.controladoresALQUILER.vBuscarAlquiler;
+import org.iesalandalus.programacion.alquilervehiculos.vista.grafica.controladores.controladoresALQUILER.VdevolverPorAlquiler;
 import org.iesalandalus.programacion.alquilervehiculos.vista.grafica.controladores.controladoresALQUILER.vEliminarAlquiler;
 import org.iesalandalus.programacion.alquilervehiculos.vista.grafica.controladores.controladoresALQUILER.vInsertarAlquiler;
 import org.iesalandalus.programacion.alquilervehiculos.vista.grafica.controladores.controladoresCLIENTE.VdevolverPorCliente;
@@ -117,7 +117,7 @@ public class MenuPrincipal extends Controlador {
 	void devolverAlquiler(ActionEvent event) {
 
 		VdevolverPorAlquiler vda = (VdevolverPorAlquiler) Controladores
-				.get("vistas/vistasALQUILER/VdevolverPorAlquiler.fxml", "Devolver alquiler por cliente", null);
+				.get("vistas/vistasALQUILER/vDevolverPorAlquiler.fxml", "Devolver alquiler", null);
 
 		vda.inicializar();
 		vda.getEscenario().show();
@@ -229,9 +229,6 @@ public class MenuPrincipal extends Controlador {
 	@FXML
 	void listarCliente(ActionEvent event) {
 
-		// CON ESTO SE ACCEDE A LAS CLASES QUE NOS DAN LOS DATOS:
-		// VistaGrafica.getInstancia().getControlador().getClientes();
-
 		VtablaClientes vtc = (VtablaClientes) Controladores.get("vistas/vistasCLIENTE/VtablaClientes.fxml",
 				"Listado clientes", null);
 
@@ -248,8 +245,6 @@ public class MenuPrincipal extends Controlador {
 
 		vtv.inicializar();
 		vtv.getEscenario().show();
-		// TODO Encontrar forma de que se cierre TOTALMENTE la vista, para que se
-		// actualice la tabla constantemente
 
 	}
 
@@ -267,7 +262,7 @@ public class MenuPrincipal extends Controlador {
 	void mostrarEstadisticasMensuales(ActionEvent event) {
 
 		VEstadisticas vte = (VEstadisticas) Controladores.get("vistas/vistasALQUILER/VEstadisticas.fxml",
-				"Tabla Estadisticas", null);
+				"Seleccionar mes", null);
 
 		vte.inicializar();
 		vte.getEscenario().show();

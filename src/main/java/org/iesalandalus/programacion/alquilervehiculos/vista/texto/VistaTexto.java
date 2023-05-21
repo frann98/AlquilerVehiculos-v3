@@ -293,10 +293,10 @@ public class VistaTexto extends Vista {
 		stats.put(TipoVehiculo.FURGONETA, furgonetas);
 		stats.put(TipoVehiculo.AUTOBUS, autobuses);
 
-		for (int j = 0; j < listaAlquileres.size(); j++) {
+		for (Alquiler listaAlquilere : listaAlquileres) {
 
-			if (TipoVehiculo.get(listaAlquileres.get(j).getVehiculo()).equals(TipoVehiculo.TURISMO)
-					&& listaAlquileres.get(j).getFechaAlquiler().getMonthValue() == mes.getMonthValue()) {
+			if (TipoVehiculo.get(listaAlquilere.getVehiculo()).equals(TipoVehiculo.TURISMO)
+					&& listaAlquilere.getFechaAlquiler().getMonthValue() == mes.getMonthValue()) {
 
 				turismos++;
 
@@ -304,8 +304,8 @@ public class VistaTexto extends Vista {
 
 			}
 
-			if (TipoVehiculo.get(listaAlquileres.get(j).getVehiculo()).equals(TipoVehiculo.FURGONETA)
-					&& listaAlquileres.get(j).getFechaAlquiler().getMonthValue() == mes.getMonthValue()) {
+			if (TipoVehiculo.get(listaAlquilere.getVehiculo()).equals(TipoVehiculo.FURGONETA)
+					&& listaAlquilere.getFechaAlquiler().getMonthValue() == mes.getMonthValue()) {
 
 				furgonetas++;
 
@@ -313,8 +313,8 @@ public class VistaTexto extends Vista {
 
 			}
 
-			if (TipoVehiculo.get(listaAlquileres.get(j).getVehiculo()).equals(TipoVehiculo.AUTOBUS)
-					&& listaAlquileres.get(j).getFechaAlquiler().getMonthValue() == mes.getMonthValue()) {
+			if (TipoVehiculo.get(listaAlquilere.getVehiculo()).equals(TipoVehiculo.AUTOBUS)
+					&& listaAlquilere.getFechaAlquiler().getMonthValue() == mes.getMonthValue()) {
 
 				autobuses++;
 

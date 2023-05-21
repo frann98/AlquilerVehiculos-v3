@@ -7,14 +7,14 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="432.0" spacing="20.0" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.iesalandalus.programacion.alquilervehiculos.vista.grafica.controladores.controladoresALQUILER.VEstadisticas">
+<VBox alignment="TOP_CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="200.0" prefWidth="432.0" spacing="20.0" style="-fx-background-color: #6699cc;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="org.iesalandalus.programacion.alquilervehiculos.vista.grafica.controladores.controladoresALQUILER.VEstadisticas">
    <children>
       <AnchorPane prefHeight="404.0" prefWidth="600.0">
          <children>
-            <Button fx:id="btAceptar" layoutX="92.0" layoutY="120.0" mnemonicParsing="false" onAction="#aceptarYmostrarEstadisticas" text="Aceptar" />
+            <Button fx:id="btAceptar" layoutX="90.0" layoutY="120.0" mnemonicParsing="false" onAction="#aceptarYmostrarEstadisticas" text="Aceptar" />
             <Label layoutX="82.0" layoutY="43.0" text="Mes del que desea conocer las estadísticas:" />
             <ComboBox fx:id="cbMeses" layoutX="121.0" layoutY="67.0" prefWidth="150.0" />
-            <Button fx:id="btCancelar" layoutX="242.0" layoutY="120.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
+            <Button fx:id="btCancelar" layoutX="240.0" layoutY="120.0" mnemonicParsing="false" onAction="#cancelar" text="Cancelar" />
          </children>
       </AnchorPane>
    </children>

@@ -9,7 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class FurgonetaTest {
-	
+
 	private static final String MENSAJE_ERROR_MARCA_NULA = "ERROR: La marca no puede ser nula.";
 	private static final String MENSAJE_ERROR_FORMATO_MARCA_NO_VALIDA = "ERROR: La marca no tiene un formato válido.";
 	private static final String MENSAJE_ERROR_MODELO_NULO = "ERROR: El modelo no puede ser nulo.";
@@ -19,15 +19,15 @@ public class FurgonetaTest {
 	private static final String MENSAJE_ERROR_MATRICULA_NULA = "ERROR: La matrícula no puede ser nula.";
 	private static final String MENSAJE_ERROR_FORMATO_MATRICULA_NO_VALIDA = "ERROR: La matrícula no tiene un formato válido.";
 	private static final String MENSAJE_ERROR_VEHICULO_NULO = "ERROR: No es posible copiar un vehículo nulo.";
-	
+
 	private static final String MARCA_VALIDA = "Mercedes-Benz";
 	private static final String MODELO_VALIDO = "eSprinter";
 	private static final int PMA_VALIDO = 7000;
 	private static final int PLAZAS_VALIDAS = 2;
 	private static final String MATRICULA_VALIDA = "1234BCD";
-	
+
 	private Furgoneta furgoneta;
-	
+
 	@BeforeEach
 	void init() {
 		furgoneta = new Furgoneta(MARCA_VALIDA, MODELO_VALIDO, PMA_VALIDO, PLAZAS_VALIDAS, MATRICULA_VALIDA);
@@ -46,7 +46,7 @@ public class FurgonetaTest {
 		furgoneta = new Furgoneta("Rolls-Royce", MODELO_VALIDO, PMA_VALIDO, PLAZAS_VALIDAS, MATRICULA_VALIDA);
 		furgoneta = new Furgoneta("SsangYong", MODELO_VALIDO, PMA_VALIDO, PLAZAS_VALIDAS, MATRICULA_VALIDA);
 	}
-	
+
 	@Test
 	void constructorMarcaNoValidaModeloValidoPmaValidoPlazasValidasMatrivaValidaLanzaExcepcion() {
 		NullPointerException npe = assertThrows(NullPointerException.class, () -> new Furgoneta(null, MODELO_VALIDO, PMA_VALIDO, PLAZAS_VALIDAS, MATRICULA_VALIDA));
@@ -64,7 +64,7 @@ public class FurgonetaTest {
 		iae = assertThrows(IllegalArgumentException.class, () -> new Furgoneta("aa bb", MODELO_VALIDO, PMA_VALIDO, PLAZAS_VALIDAS, MATRICULA_VALIDA));
 		assertEquals(MENSAJE_ERROR_FORMATO_MARCA_NO_VALIDA, iae.getMessage());
 	}
-	
+
 	@Test
 	void constructorMarcaValidaModeloNoValidoPmaValidoPlazasValidasMatrivaValidaLanzaExcepcion() {
 		NullPointerException npe = assertThrows(NullPointerException.class, () -> new Furgoneta(MARCA_VALIDA, null, PMA_VALIDO, PLAZAS_VALIDAS, MATRICULA_VALIDA));
@@ -76,7 +76,7 @@ public class FurgonetaTest {
 		iae = assertThrows(IllegalArgumentException.class, () -> new Furgoneta(MARCA_VALIDA, "	", PMA_VALIDO, PLAZAS_VALIDAS, MATRICULA_VALIDA));
 		assertEquals(MENSAJE_ERROR_MODELO_BLANCO, iae.getMessage());
 	}
-	
+
 	@Test
 	void constructorMarcaValidaModeloValidoPmaNoValidoPlazasValidasMatrivaValidaLanzaExcepcion() {
 		IllegalArgumentException iae = assertThrows(IllegalArgumentException.class, () -> new Furgoneta(MARCA_VALIDA, MODELO_VALIDO, 100, PLAZAS_VALIDAS, MATRICULA_VALIDA));
@@ -84,7 +84,7 @@ public class FurgonetaTest {
 		iae = assertThrows(IllegalArgumentException.class, () -> new Furgoneta(MARCA_VALIDA, MODELO_VALIDO, 10001, PLAZAS_VALIDAS, MATRICULA_VALIDA));
 		assertEquals(MENSAJE_ERROR_PMA_NO_VALIDO, iae.getMessage());
 	}
-	
+
 	@Test
 	void constructorMarcaValidaModeloValidoPmaValidoPlazasNoValidasMatrivaValidaLanzaExcepcion() {
 		IllegalArgumentException iae = assertThrows(IllegalArgumentException.class, () -> new Furgoneta(MARCA_VALIDA, MODELO_VALIDO, PMA_VALIDO, 1, MATRICULA_VALIDA));
@@ -92,7 +92,7 @@ public class FurgonetaTest {
 		iae = assertThrows(IllegalArgumentException.class, () -> new Furgoneta(MARCA_VALIDA, MODELO_VALIDO, PMA_VALIDO, 10, MATRICULA_VALIDA));
 		assertEquals(MENSAJE_ERROR_PLAZAS_NO_VALIDAS, iae.getMessage());
 	}
-	
+
 	@Test
 	void constructorMarcaValidaModeloValidoPmaValidoPlazasValidasMatrivaNoValidaLanzaExcepcion() {
 		NullPointerException npe = assertThrows(NullPointerException.class, () -> new Furgoneta(MARCA_VALIDA, MODELO_VALIDO, PMA_VALIDO, PLAZAS_VALIDAS, null));
@@ -106,7 +106,7 @@ public class FurgonetaTest {
 		iae = assertThrows(IllegalArgumentException.class, () -> new Furgoneta(MARCA_VALIDA, MODELO_VALIDO, PMA_VALIDO, PLAZAS_VALIDAS, "234BCD"));
 		assertEquals(MENSAJE_ERROR_FORMATO_MATRICULA_NO_VALIDA, iae.getMessage());
 	}
-	
+
 	@Test
 	void constructorFurgonetaValidaCopiaFurgonetaCorrectamente() {
 		Furgoneta furgonetaCopia = new Furgoneta(furgoneta);
@@ -118,14 +118,14 @@ public class FurgonetaTest {
 		assertEquals(PLAZAS_VALIDAS, furgonetaCopia.getPlazas());
 		assertEquals(MATRICULA_VALIDA, furgonetaCopia.getMatricula());
 	}
-	
+
 	@Test
 	void constructoAFurgonetaNulaLanzaExcepcion() {
 		NullPointerException npe = assertThrows(NullPointerException.class, () -> new Furgoneta(null));
 		assertEquals(MENSAJE_ERROR_VEHICULO_NULO, npe.getMessage());
 	}
-	
-	
+
+
 	@Test
 	void equalsYHasCodeConsistentes() {
 		Vehiculo furgoneaIgual = new Furgoneta(furgoneta);
@@ -139,7 +139,7 @@ public class FurgonetaTest {
 		assertNotEquals(furgoneta.hashCode(), turismoDiferente.hashCode());
 		assertNotEquals(furgoneta, null);
 	}
-	
+
 	@Test
 	void toStringDevuelveLaCadenaEsperada() {
 		assertEquals(String.format("%s %s (%d kg, %d plazas) - %s", MARCA_VALIDA, MODELO_VALIDO, PMA_VALIDO, PLAZAS_VALIDAS, MATRICULA_VALIDA), furgoneta.toString());
